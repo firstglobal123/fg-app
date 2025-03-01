@@ -640,7 +640,7 @@ def country_macros(country, data_type):
     url1 = 'https://tradingeconomics.com/{}/indicators'.format(country)
     html1 = requests.get(url1).content
     df_list1 = pd.read_html(html1)
-    pd.set_option('display.float_format', lambda x: '%.2f' % x)
+    #pd.set_option('display.float_format', lambda x: '%.2f' % x)
     
     if data_type == 'Overview':
         return df_list1[1].iloc[:,:-1].set_index(df_list1[1].columns[0])
