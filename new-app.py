@@ -36,7 +36,7 @@ from ipywidgets import interact, interact_manual
 st.write("""
 # Cross Asset Market Analytics
 """)
-st.write('Data as of 28th feb, 2025 (EOD)')
+st.write('Data as of 28th Feb, 2025 (EOD)')
 components.iframe("https://harshshivlani.github.io/x-asset/liveticker")
 st.sidebar.header('Cross Asset Monitor: Contents')
 side_options = st.sidebar.radio('Please Select One:', ('Equities', 'Fixed Income', 'REITs', 'Commodities', 'FX'))
@@ -55,7 +55,7 @@ def color_positive_green(val):
     return 'color: %s' % color
 
 #Import Master Data
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def load_eq_data():
 	data = pd.read_excel("GSTOCKS_N.xlsx", engine='openpyxl')
 	#sep=","
