@@ -293,11 +293,10 @@ def eqetf_filter(category, country, currency):
 	else:
 	    df = df[df['Category'].values == category].set_index('Ticker')
 
-	return df.sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield"]+retsetf)
-	#\
-        #           .format('{0:,.2f}B', subset=["Market Cap"])\
-         #          .format('{0:,.2f}M', subset=["20D T/O"])\
-          #         .applymap(color_positive_green, subset=retsetf)
+	return df.sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield"]+retsetf)\
+                   .format('{0:,.2f}B', subset=["Market Cap"])\
+                   .format('{0:,.2f}M', subset=["20D T/O"])\
+                   .applymap(color_positive_green, subset=retsetf)
 
 
 
@@ -517,7 +516,7 @@ def filter_reit(country, subind, maxmcap, minmcap):
 
     return df_style
 
-@st.cache_data
+#@st.cache_data
 def reit_pivot_table(country, ind, maxmcap, minmcap):
     df = reits.copy()
     df = df[(df["Market Cap"]<=maxmcap) & (df["Market Cap"]>minmcap)]
