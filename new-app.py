@@ -293,8 +293,8 @@ def eqetf_filter(category, country, currency):
 	else:
 	    df = df[df['Category'].values == category].set_index('Ticker')
 
-	return df.sort_values(by='1D', ascending=False)
-	#.style.format('{0:,.2f}%', subset=["Dividend Yield"]+retsetf)\
+	return df.sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield"]+retsetf)
+	#\
         #           .format('{0:,.2f}B', subset=["Market Cap"])\
          #          .format('{0:,.2f}M', subset=["20D T/O"])\
           #         .applymap(color_positive_green, subset=retsetf)
