@@ -267,7 +267,7 @@ us= ['United States']
 
 china = ['China']
 
-@st.cache_data
+@st.cache_resource
 def eqetf_filter(category, country, currency):
 	df = eq_etfs.copy()
 	if country == 'All':
@@ -647,7 +647,7 @@ fi_cats1 = ['All'] + list(fi_etfs['Category'].unique())
 fi_cntry = ['All'] + list(fi_etfs['Country'].unique())
 fi_cur = ['All'] + list(fi_etfs['Currency'].unique())
 
-@st.cache_data
+@st.cache_resource
 def fi_filter(category, country, currency):
 	df = fi_etfs.copy()
 	if country != 'All':
