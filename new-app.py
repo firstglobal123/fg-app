@@ -287,9 +287,9 @@ def eqetf_filter(category, country, currency):
 
 	if category == 'All':
 		df=df[:].set_index('Ticker')
-	elif category == 'None':
-		st.write('Median Returns')
-		df = df.groupby(by="Category").mean()
+	#elif category == 'None':
+	#	st.write('Median Returns')
+	#	df = df.groupby(by="Category").mean()
 	else:
 	    df = df[df['Category'].values == category].set_index('Ticker')
 
@@ -434,13 +434,13 @@ if side_options == 'Equities':
 
 	eq_currency = st.selectbox('Currency: ', eq_cur, key='fi_cur_pivot')
 	if eq_country=="All" and eq_currency !="All":
-		eq_cats = ['None', 'All'] + list(eq_etfs[eq_etfs['Currency']==eq_currency]['Category'].unique())
+		eq_cats = ['All'] + list(eq_etfs[eq_etfs['Currency']==eq_currency]['Category'].unique())
 	elif eq_country !="All" and eq_currency!="All":
-		eq_cats = ['None', 'All'] + list(eq_etfs[(eq_etfs['Country']==eq_country) & (eq_etfs['Currency']==eq_currency)]['Category'].unique())
+		eq_cats = ['All'] + list(eq_etfs[(eq_etfs['Country']==eq_country) & (eq_etfs['Currency']==eq_currency)]['Category'].unique())
 	elif eq_country !="All" and eq_currency=="All":
-		eq_cats = ['None', 'All'] + list(eq_etfs[eq_etfs['Country']==eq_country]['Category'].unique())
+		eq_cats = ['All'] + list(eq_etfs[eq_etfs['Country']==eq_country]['Category'].unique())
 	else:
-		eq_cats = ['None', 'All'] + list(eq_etfs['Category'].unique())
+		eq_cats = ['All'] + list(eq_etfs['Category'].unique())
 
 	eq_category = st.selectbox('Category: ', eq_cats, key='fi_pivot')
 	eq_etfs_styled = eqetf_filter(category=eq_category, country=eq_country, currency=eq_currency)
