@@ -30,7 +30,7 @@ from plotly.subplots import make_subplots
 
 import ipywidgets as widgets
 from ipywidgets import interact, interact_manual
-from IPython.core.display import display, HTML
+#from IPython.core.display import display, HTML
 
 
 st.write("""
