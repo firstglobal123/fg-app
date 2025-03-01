@@ -40,7 +40,7 @@ st.write('Data as of 28th Feb, 2025 (EOD)')
 components.iframe("https://harshshivlani.github.io/x-asset/liveticker")
 st.sidebar.header('Cross Asset Monitor: Contents')
 side_options = st.sidebar.radio('Please Select One:', ('Equities', 'Fixed Income', 'REITs', 'Commodities', 'FX'))
-st.sidebar.write("Developed by :blue[Harsh Shivlani]")
+st.sidebar.markdown('''Developed by :blue[Harsh Shivlani]''')
 
 def color_positive_green(val):
     """
