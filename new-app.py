@@ -118,7 +118,7 @@ def filter_table(country, maxmcap, minmcap, ind=['All'], subind='All'):
     return df_style
 
 #EQUITIES - PIVOT TABLE
-@st.cache_data()
+#@st.cache_data()
 def mcap_weighted(df, rets_cols, groupby, reit=False):
 	df[rets_cols] = df[rets_cols]/100
 	old_mcap = (1/(1+df[rets_cols])).multiply(df['Market Cap'], axis='rows')
