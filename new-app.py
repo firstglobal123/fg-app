@@ -287,9 +287,9 @@ def eqetf_filter(category, country, currency):
 
 	if category == 'All':
 		df=df[:].set_index('Ticker')
-	elif category == 'None':
-		st.write('Median Returns')
-		df = df.groupby(by="Category").median()
+	#elif category == 'None':
+	#	st.write('Median Returns')
+	#	df = df.groupby(by="Category").median()
 	else:
 	    df = df[df['Category'].values == category].set_index('Ticker')
 
@@ -642,7 +642,7 @@ def load_fi_etfs():
 	return fi_etfs
 
 fi_etfs = load_fi_etfs()
-fi_cats = ['None', 'All'] + list(fi_etfs['Category'].unique())
+fi_cats = ['All'] + list(fi_etfs['Category'].unique())
 fi_cats1 = ['All'] + list(fi_etfs['Category'].unique())
 fi_cntry = ['All'] + list(fi_etfs['Country'].unique())
 fi_cur = ['All'] + list(fi_etfs['Currency'].unique())
