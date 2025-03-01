@@ -27,7 +27,7 @@ from pandas.tseries import offsets
 
 
 #notebook formatting
-from IPython.core.display import display, HTML
+#from IPython.core.display import display, HTML
 
 def drawdowns2020(data):
     return_series = pd.DataFrame(data.pct_change().dropna()[str(date.today().year):])
