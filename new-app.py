@@ -662,12 +662,12 @@ def fi_filter(category, country, currency):
 	                   .format('{0:,.2f}M', subset=["20D T/O"])\
 	                   .applymap(color_positive_green,  subset=["1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])
 
-	elif category == 'None':
-	    df = df.groupby(by="Category").median()
-	    return df.sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield","1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])\
-	                   .format('{0:,.2f}B', subset=["Market Cap"])\
-	                   .format('{0:,.2f}M', subset=["20D T/O"])\
-	                   .applymap(color_positive_green, subset=["1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])
+	#elif category == 'None':
+	 #   df = df.groupby(by="Category").median()
+	  #  return df.sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield","1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])\
+	  #                 .format('{0:,.2f}B', subset=["Market Cap"])\
+	  #                 .format('{0:,.2f}M', subset=["20D T/O"])\
+	  #                .applymap(color_positive_green, subset=["1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])
 	else:
 	    df = df[df['Category'] == category]
 	    return df.set_index('Ticker').sort_values(by='1D', ascending=False).style.format('{0:,.2f}%', subset=["Dividend Yield","1D","1W","1M","3M","6M","YTD","1Y","% 52W High"])\
