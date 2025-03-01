@@ -55,7 +55,7 @@ def color_positive_green(val):
     return 'color: %s' % color
 
 #Import Master Data
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data()
 def load_eq_data():
 	data = pd.read_excel("GSTOCKS_N.xlsx", engine='openpyxl')
 	#sep=","
