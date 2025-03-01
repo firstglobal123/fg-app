@@ -327,8 +327,7 @@ if side_options == 'Equities':
 	#INDEX DATA
 	st.title('Global Equity Indices')
 	eqidx = pd.read_excel("EQ-FX.xlsx", engine='openpyxl', sheet_name='EQ', header=0, index_col=0)
-	eqidx = eqidx.sort_values(by='Chg USD(%)', ascending=False).style.format('{0:,.2%}', subset=['Chg L Cy(%)', 'Chg USD(%)', '$1W(%)',
-																					  '1M (%)', '$YTD(%)'])\
+	eqidx = eqidx.sort_values(by='Chg USD(%)', ascending=False).style.format('{0:,.2%}', subset=['Chg L Cy(%)', 'Chg USD(%)', '$1W(%)','1M (%)', '$YTD(%)'])\
 					.format('{0:,.2f}', subset=['Price (EOD)'])\
 					.applymap(color_positive_green, subset=['Chg L Cy(%)', 'Chg USD(%)', '$1W(%)','1M (%)', '$YTD(%)'])\
 					#.background_gradient(cmap='RdYlGn', subset=['Chg L Cy(%)', 'Chg USD(%)', '$1W(%)','1M (%)', '$YTD(%)'])
