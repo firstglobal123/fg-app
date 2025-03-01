@@ -55,7 +55,7 @@ def color_positive_green(val):
     return 'color: %s' % color
 
 #Import Master Data
-@st.cache_data()
+@st.cache_data
 def load_eq_data():
 	data = pd.read_excel("GSTOCKS_N.xlsx", engine='openpyxl')
 	#sep=","
@@ -88,7 +88,7 @@ all_countries = ["All"] + list(data['Country'].unique())
 
 
 #EQUITIES - SCREENER
-@st.cache_data()
+@st.cache_data
 def filter_table(country, maxmcap, minmcap, ind=['All'], subind='All'):
     df = data.copy()
     df = df[(df["Market Cap"].values<=maxmcap) & (df["Market Cap"].values>minmcap)]
@@ -118,7 +118,7 @@ def filter_table(country, maxmcap, minmcap, ind=['All'], subind='All'):
     return df_style
 
 #EQUITIES - PIVOT TABLE
-#@st.cache_data()
+#@st.cache_data
 def mcap_weighted(df, rets_cols, groupby, reit=False):
 	df[rets_cols] = df[rets_cols]/100
 	old_mcap = (1/(1+df[rets_cols])).multiply(df['Market Cap'], axis='rows')
@@ -202,7 +202,7 @@ def regional_sect_perf(period='1M', level = 'Industry'):
 
 
 #########################################--------------------EQUITY-ETFS--------------------##########################
-@st.cache_data()
+@st.cache_data
 def load_eqetf_data():
 	eq_etfs = pd.read_excel('GEQETF_N.xlsx', engine='openpyxl')
 	eq_etfs.columns = ["Ticker","Name","Country","Category","Dividend Yield","Currency","Market Cap","1D","1W","1M","3M","6M","YTD","1Y","3Y","Dividend Type","Exchange","52W High","Price","20D T/O"]
@@ -267,7 +267,7 @@ us= ['United States']
 
 china = ['China']
 
-@st.cache_data()
+@st.cache_data
 def eqetf_filter(category, country, currency):
 	df = eq_etfs.copy()
 	if country == 'All':
@@ -301,7 +301,7 @@ def eqetf_filter(category, country, currency):
 
 
 # ----------------------------- EQUITIES SIDEPANEL ---------------------------------------------------------------------
-@st.cache_data()
+@st.cache_data
 def num_func(df, sortby, num):
     return df.sort_values(by=sortby, ascending=False)[:num] if num>0 else df.sort_values(by=sortby, ascending=False)[num:].sort_values(by=sortby)
 
@@ -450,7 +450,7 @@ if side_options == 'Equities':
 
 
 # ----------------------------- REITS SIDEPANEL ---------------------------------------------------------------------
-@st.cache_data()
+@st.cache_data
 def load_reits():
 	reits = pd.read_excel('GREITS_N.xlsx', engine='openpyxl')
 	reits.columns = ["Ticker","Name","Market Cap","Country","Sub-Industry","20D T/O","Dividend Yield","1D","1W","1M","3M","6M","YTD","1Y","3Y","Dividend Type","Div Payout Date","Currency","52W High","Price"]
@@ -498,7 +498,7 @@ def reit_boxplot(country, industry, period):
     #fig.update_traces(hovertemplate='Date: %{x} <br>Return: %{y:.2%}') 
     return fig
 
-@st.cache_data()
+@st.cache_data
 def filter_reit(country, subind, maxmcap, minmcap):
     df = reits.copy()
     df[df.columns[4:14]] = df[df.columns[4:14]].fillna(0.00) 
@@ -516,7 +516,7 @@ def filter_reit(country, subind, maxmcap, minmcap):
 
     return df_style
 
-@st.cache_data()
+@st.cache_data
 def reit_pivot_table(country, ind, maxmcap, minmcap):
     df = reits.copy()
     df = df[(df["Market Cap"]<=maxmcap) & (df["Market Cap"]>minmcap)]
@@ -629,7 +629,7 @@ if side_options == 'FX':
 
 
 #################-------------------------Fixed Income-------------------------------#######################
-@st.cache_data()
+@st.cache_data
 def load_fi_etfs():
 	fi_etfs = pd.read_excel('GFI_N.xlsx', engine='openpyxl')
 	fi_etfs.columns = ["Ticker","Name","20D T/O","Market Cap","Category","Dividend Yield","Currency","1D","1W","1M","3M","6M","YTD","1Y","Dividend Type","Exchange","Country","52W High","Price"]
@@ -647,7 +647,7 @@ fi_cats1 = ['All'] + list(fi_etfs['Category'].unique())
 fi_cntry = ['All'] + list(fi_etfs['Country'].unique())
 fi_cur = ['All'] + list(fi_etfs['Currency'].unique())
 
-@st.cache_data()
+@st.cache_data
 def fi_filter(category, country, currency):
 	df = fi_etfs.copy()
 	if country != 'All':
