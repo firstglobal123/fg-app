@@ -289,7 +289,7 @@ def eqetf_filter(category, country, currency):
 		df=df[:].set_index('Ticker')
 	elif category == 'None':
 		st.write('Median Returns')
-		df = df.groupby(by="Category").median()
+		df = df.groupby(by="Category").mean()
 	else:
 	    df = df[df['Category'].values == category].set_index('Ticker')
 
