@@ -498,7 +498,7 @@ def reit_boxplot(country, industry, period):
     #fig.update_traces(hovertemplate='Date: %{x} <br>Return: %{y:.2%}') 
     return fig
 
-@st.cache_data
+@st.cache_resource
 def filter_reit(country, subind, maxmcap, minmcap):
     df = reits.copy()
     df[df.columns[4:14]] = df[df.columns[4:14]].fillna(0.00) 
