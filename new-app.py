@@ -36,7 +36,7 @@ from plotly.subplots import make_subplots
 st.write("""
 # Cross Asset Market Analytics
 """)
-st.write('Data as of 28th Mar, 2025 (EOD)')
+st.write('Data as of 31st Mar, 2025 (EOD)')
 components.iframe("https://harshshivlani.github.io/x-asset/liveticker")
 st.sidebar.header('Cross Asset Monitor: Contents')
 side_options = st.sidebar.radio('Please Select One:', ('Equities', 'Fixed Income', 'REITs', 'Commodities', 'FX'))
