@@ -16,7 +16,6 @@ from ipywidgets import interact, interact_manual
 from datetime import date
 import time
 import datetime
-import investpy
 import plotly
 import plotly.graph_objects as go
 import plotly.express as px
