@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 import yfinance as yf
 import yahooquery
-import investpy
 import streamlit as st
 import streamlit.components.v1 as components
 import warnings
@@ -695,4 +694,5 @@ if side_options =='Fixed Income':
 		fi_category = st.selectbox('Category: ', fi_cats, key='fi_pivot')
 
 	print(st.dataframe(fi_filter(category=fi_category, country=fi_country, currency=fi_currency), height=700))
+
 
