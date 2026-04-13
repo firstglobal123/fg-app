@@ -10,7 +10,6 @@ from yahooquery import Ticker
 #from pandas_datareader import data
 import matplotlib.pyplot as plt
 from matplotlib import colors
-import investpy
 import openpyxl
 
 
